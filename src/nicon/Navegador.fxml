@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="Navegador" prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml" fx:controller="nicon.NavegadorController">
+  <children>
+    <TextField fx:id="Direccion" layoutY="7.0" onKeyPressed="#PressEnter" prefHeight="32.0" prefWidth="486.0" AnchorPane.leftAnchor="71.0" />
+    <Button fx:id="navegar" layoutY="7.0" mnemonicParsing="false" onAction="#DefaultAction1" prefHeight="32.0" prefWidth="80.0" text="Navegar" AnchorPane.leftAnchor="557.0" />
+    <Button fx:id="marcadores" layoutY="7.0" mnemonicParsing="false" onAction="#MarcadoresButton" prefHeight="32.0" prefWidth="32.0" styleClass="marcs" text="" AnchorPane.rightAnchor="39.0">
+      <stylesheets>
+        <URL value="@Imagenes/Estilos.css" />
+      </stylesheets>
+    </Button>
+    <Button fx:id="opciones" layoutY="7.0" mnemonicParsing="false" onAction="#OptionButton" prefHeight="32.0" prefWidth="32.0" styleClass="option" text="" AnchorPane.rightAnchor="7.0">
+      <stylesheets>
+        <URL value="@Imagenes/Estilos.css" />
+      </stylesheets>
+    </Button>
+    <TabPane fx:id="Tabs" prefHeight="579.0" prefWidth="786.0" tabClosingPolicy="SELECTED_TAB" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="47.0">
+      <tabs>
+        <Tab fx:id="Marcs" text="Marcadores">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <ListView fx:id="listM" layoutX="14.0" layoutY="14.0" prefHeight="445.0" prefWidth="350.0" />
+                <Button fx:id="IRMarc" layoutX="489.0" layoutY="14.0" mnemonicParsing="false" onAction="#IRMarcButton" prefHeight="32.0" prefWidth="200.0" text="Ir a Marcador" />
+                <Button fx:id="DeleteMarc" layoutX="489.0" layoutY="54.0" mnemonicParsing="false" onAction="#DeleteMarcAction" prefHeight="32.0" prefWidth="200.0" text="Eliminar Marcador" />
+                <Button fx:id="AMarcs" layoutX="489.0" layoutY="204.0" mnemonicParsing="false" onAction="#MarcsButton" prefHeight="32.0" prefWidth="200.0" text="Añadir Marcador" />
+                <TabPane fx:id="MTabs" layoutX="370.0" layoutY="240.0" prefHeight="219.0" prefWidth="409.0" tabClosingPolicy="UNAVAILABLE">
+                  <tabs>
+                    <Tab fx:id="MTab" text="Añadir Marcador">
+                      <content>
+                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                          <children>
+                            <Label layoutX="11.0" layoutY="24.0" text="Nombre:" />
+                            <Label layoutX="14.0" layoutY="72.0" text="Enlace:" />
+                            <TextField fx:id="MName" layoutX="68.0" layoutY="15.0" prefHeight="32.0" prefWidth="327.0" />
+                            <TextField fx:id="MLink" layoutX="68.0" layoutY="63.0" prefHeight="32.0" prefWidth="327.0" />
+                            <Button fx:id="AMarc" layoutX="112.0" layoutY="132.0" mnemonicParsing="false" onAction="#AddMarcAction" prefHeight="32.0" prefWidth="186.0" text="Añadir Marcador" />
+                          </children>
+                        </AnchorPane>
+                      </content>
+                    </Tab>
+                  </tabs>
+                </TabPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab fx:id="Option" closable="true" text="Opciones">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="467.0" prefWidth="786.0">
+              <children>
+                <Label layoutX="14.0" layoutY="21.0" text="Página de Inicio:">
+                  <font>
+                    <Font name="System Bold" size="14.0" fx:id="x1" />
+                  </font>
+                </Label>
+                <TextField fx:id="INIPAGE" layoutX="165.0" layoutY="14.0" prefHeight="32.0" prefWidth="435.0" />
+                <Button layoutX="619.0" layoutY="14.0" mnemonicParsing="false" onAction="#INISaveAction" prefHeight="32.0" prefWidth="80.0" text="Guardar" />
+                <Label font="$x1" layoutX="14.0" layoutY="80.0" text="Carpeta de Descarga:" />
+                <TextField id="INIPAGE" fx:id="Dfield" layoutX="204.0" layoutY="73.0" prefHeight="32.0" prefWidth="396.0" />
+                <Button fx:id="Dsave" layoutX="692.0" layoutY="73.0" mnemonicParsing="false" onAction="#SaveFolderButton" prefHeight="32.0" prefWidth="80.0" text="Guardar" />
+                <Button id="Dsave" fx:id="Explorar" layoutX="612.0" layoutY="73.0" mnemonicParsing="false" onAction="#SelectFolder" prefHeight="32.0" prefWidth="80.0" text="Explorar" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+    <Button fx:id="Home" layoutY="7.0" mnemonicParsing="false" onAction="#HomeAction" prefHeight="32.0" prefWidth="32.0" styleClass="home" text="" AnchorPane.rightAnchor="71.0">
+      <stylesheets>
+        <URL value="@Imagenes/Estilos.css" />
+      </stylesheets>
+    </Button>
+    <ProgressIndicator fx:id="Prog" layoutY="7.0" progress="1.0" AnchorPane.rightAnchor="110.0" />
+    <Button fx:id="DescImage" layoutY="7.0" mnemonicParsing="false" onAction="#DesImageAction" prefHeight="32.0" prefWidth="119.0" text="Descargar Imagen" AnchorPane.rightAnchor="147.0" />
+    <Button fx:id="back" layoutY="7.0" mnemonicParsing="false" onAction="#backButtonAction" onMouseEntered="#backButtonEntred" onMouseExited="#backButtonExited" prefHeight="32.0" prefWidth="32.0" styleClass="Dback" text="" AnchorPane.leftAnchor="7.0">
+      <stylesheets>
+        <URL value="@Imagenes/Estilos.css" />
+      </stylesheets>
+    </Button>
+    <Button fx:id="adel" layoutY="7.0" mnemonicParsing="false" onAction="#adelButtonAction" onMouseEntered="#adelButtonEntred" onMouseExited="#adelButtonExited" prefHeight="32.0" prefWidth="32.0" styleClass="Dadel" text="" AnchorPane.leftAnchor="39.0">
+      <stylesheets>
+        <URL value="@Imagenes/Estilos.css" />
+      </stylesheets>
+    </Button>
+  </children>
+</AnchorPane>
